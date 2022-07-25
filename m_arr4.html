@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>
+                <th>수학</th>
+                <th>합계</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        const arr = [
+            { name: '홍길동', kor: 90, eng: 100, math: 95 },
+            { name: '유관순', kor: 100, eng: 80, math: 90 },
+            { name: '홍길동', kor: 80, eng: 98, math: 91 },
+        ];
+
+        const tbodyElem = document.querySelector('tbody');
+        scoreSumObj = {
+            kor: 0,
+            eng: 0,
+            math: 0,
+            total: 0,
+        };
+        arr.forEach(item => {
+            const trElem = document.createElement('tr');
+            tbodyElem.append(trElem);
+
+            const scoreSum = item.kor + item.eng + item.math;
+            scoreSumObj.kor += item.kor;
+            scoreSumObj.eng += item.eng;
+            scoreSumObj.math += item.math;
+            scoreSumObj.total += scoreSum;
+
+            trElem.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.kor}</td>
+            <td>${item.eng}</td>
+            <td>${item.math}</td>
+            <td>${scoreSum}</td>
+            `;
+        });
+
+        const trElem = document.createElement('tr');
+        tbodyElem.append(trElem);
+        trElem.innerHTML = `
+            <td>총합</td>
+            <td>${scoreSumObj.kor}</td>
+            <td>${scoreSumObj.eng}</td>
+            <td>${scoreSumObj.math}</td>
+            <td>${scoreSumObj.total}</td>
+            `;
+
+        // let sum = 0;
+        // arr.forEach(item => {
+        //     let row_1 = document.createElement('tr');
+
+        //     let heading_1 = document.createElement('td');
+        //     heading_1.innerHTML = `arr[item].name`;
+        //     let heading_2 = document.createElement('td');
+        //     heading_1.innerHTML = `arr[item].kor`;
+        //     let heading_3 = document.createElement('td');
+        //     heading_1.innerHTML = `arr[item].eng`;
+        //     let heading_4 = document.createElement('td');
+        //     heading_1.innerHTML = `arr[item].math`;
+        //     let heading_5 = document.createElement('td');
+        //     let arr[item].sum +=
+        //     heading_1.innerHTML = `arr[item].math`;
+
+
+
+        //     row_1.appendChild(heading_1);
+        //     row_1.appendChild(heading_2);
+        //     row_1.appendChild(heading_3);
+        //     row_1.appendChild(heading_4);
+        //     tbody.appendChild(row_1);
+
+
+        // });
+
+        // console.log(arr[0].name);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
